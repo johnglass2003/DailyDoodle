@@ -15,16 +15,22 @@
             <label for="lineWidth">Line Width</label>
             <input id="lineWidth" name='lineWidth' type="number" value="5">
             <button id="clear">Clear</button>
-        </div>
-        <div class="drawing-board-outline">
-        <div class="drawing-board">
-            <canvas id="drawing-board"></canvas>
-        </div>
-        </div>
-        <div id="toolbar-sub">
-            <button class="submit-button">Submit</button>
-        </div>
+            <button id="sub">Sub</button>
+            <!--
+                attempt to make model file uploader
+            <form action="upload.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <button type="submit" name="submit">UPLOAD</button>
+            <form>
+            -->
+        </div>      
+            <div class="drawing-board-outline">
+                <div class="drawing-board">
+                    <canvas id="drawing-board"></canvas>
+                </div>
+            </div>
     </section>
+
     <script src="./index.js"></script>
 </body>
 </html>

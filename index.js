@@ -2,6 +2,7 @@ const canvas = document.getElementById('drawing-board');
 const canvasOut = document.getElementById('drawing-board-outline');
 const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
+const submitButton = document.querySelector("#sub");
 
 var canvasOffsetX = canvas.offsetLeft;
 var canvasOffsetY = canvas.offsetTop;
@@ -21,6 +22,54 @@ let isPainting = false;
 let lineWidth = 5;
 let startX;
 let startY;
+
+submitButton.addEventListener('click', function (){
+  const dataURI = canvas.toDataURL("image/png");
+  console.log(dataURI);
+
+  
+/*
+    let formData = new FormData();           
+    formData.append("file", fileupload.files[0]);
+    await fetch('/upload.php', 
+    {
+      method: "POST", 
+      body: formData
+    });
+
+  location.href = "doodles.html";
+
+  
+
+  var blob = dataURItoBlob(dataURI);
+  var fd = new FormData(document.forms[0]);
+  var xhr = new XMLHttpRequest();
+
+  var today = new Date();
+  var date = today.getFullYear()+(today.getMonth()+1)+today.getDate();
+  var time = today.getHours()+today.getMinutes()+today.getSeconds();
+  var dateTime = date+time;
+
+
+  fd.append(dateTime, blob);
+  xhr.open('POST', '/', true);
+  xhr.send(fd);
+  */
+  
+});
+
+function dataURItoBlob(dataURI) {
+  var byteString = atob(dataURI.split(',')[1]);
+
+  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+  var ab = new ArrayBuffer(byteString.length);
+  var ia = new Uint8Array(ab);
+  for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+  }
+  return new Blob([ab], {type: mimeString});
+}
 
 toolbar.addEventListener('click', e => {
     if (e.target.id === 'clear') {
@@ -71,7 +120,7 @@ canvas.addEventListener('mouseleave', (e) => {
   });
 
 canvas.addEventListener('mousemove', draw);
-
+/*
 $('.page').each(function(i,e){
     $(this).click(function(event){
       var x = event.pageX;
@@ -93,4 +142,4 @@ $('.page').each(function(i,e){
       });
     });
   });
-  
+  */
