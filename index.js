@@ -1,12 +1,21 @@
 const canvas = document.getElementById('drawing-board');
+const canvasOut = document.getElementById('drawing-board-outline');
 const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
 
-const canvasOffsetX = canvas.offsetLeft;
-const canvasOffsetY = canvas.offsetTop;
+var canvasOffsetX = canvas.offsetLeft;
+var canvasOffsetY = canvas.offsetTop;
 
-canvas.width = window.innerWidth - canvasOffsetX;
-canvas.height = window.innerHeight - canvasOffsetY;
+window.onresize = resizeActions;
+
+function resizeActions() {
+    canvasOffsetX = canvas.offsetLeft;
+    canvasOffsetY = canvas.offsetTop;
+}
+
+canvas.height = (window.innerHeight - canvasOffsetY) * 0.7;
+canvas.width = canvas.height;
+
 
 let isPainting = false;
 let lineWidth = 5;
@@ -30,6 +39,7 @@ toolbar.addEventListener('change', e => {
     
 });
 
+
 const draw = (e) => {
     if(!isPainting) {
         return;
@@ -38,7 +48,7 @@ const draw = (e) => {
     ctx.lineWidth = lineWidth;
     ctx.lineCap = 'round';
 
-    ctx.lineTo(e.clientX - canvasOffsetX, e.clientY);
+    ctx.lineTo(e.clientX - canvasOffsetX, e.clientY - window.innerHeight * 0.1);
     ctx.stroke();
 }
 
@@ -53,6 +63,12 @@ canvas.addEventListener('mouseup', e => {
     ctx.stroke();
     ctx.beginPath();
 });
+
+canvas.addEventListener('mouseleave', (e) => {
+    isPainting = false;
+    ctx.stroke();
+    ctx.beginPath();
+  });
 
 canvas.addEventListener('mousemove', draw);
 

@@ -20,6 +20,24 @@ h1 {
     display: flex;
 }
 
+.drawing-board{
+    outline: 8px solid rgba(170, 50, 220, 1);
+}
+
+.drawing-board-outline{
+    /*margin: 0 auto;*/
+    margin: 30.5vw;
+    margin-top: 10vh;
+}
+
+@media (max-width: 1500px) {
+    .drawing-board-outline{
+        /*margin: 0 auto;*/
+        margin: 10.5vw;
+        margin-top: 10vh;
+    }
+}
+
 #toolbar {
     display: flex;
     flex-direction: column;
