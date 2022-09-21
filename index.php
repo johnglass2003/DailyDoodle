@@ -7,6 +7,7 @@
     <title>Doodles</title>
 </head>
 <body>
+    <section class="container">
     <h1><?php
         $doodles = array();
     
@@ -16,8 +17,6 @@
             echo '<img src="'.$img.'" alt="">';
         }
     ?></h1>
-    <section class="container">
-        
     </section>
     <script src="./index.js"></script>
 </body>

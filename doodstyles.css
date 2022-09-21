@@ -3,5 +3,10 @@ body {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    color: rgb(119, 202, 228);
+    color: white;
+}
+
+.container {
+    height: 100%;
+    display: flex;
 }
