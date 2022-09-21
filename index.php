@@ -9,7 +9,7 @@
 <body>
     <section class="container">
     <h1><?php
-        $files = file_get_contents('uploads/');
+        $files = scandir('uploads/');
     
         foreach($files as $img) {
             echo '<img src="'.$img.'" alt="">';
