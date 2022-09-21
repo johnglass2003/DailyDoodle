@@ -47,6 +47,6 @@ if ($uploadOk == 0) {
   }
 }
 
-echo "<script> location.href='doodles.html'; </script>";
+echo "<script> location.href='index.php'; </script>";
 exit;
 ?>
