@@ -12,7 +12,7 @@
         $files = scandir('uploads/');
     
         foreach($files as $img) {
-            echo '<img src="'.$img.'" alt="">';
+            echo '<img src="uploads/'.$img.'" alt="">';
         }
     ?></h1>
     </section>
