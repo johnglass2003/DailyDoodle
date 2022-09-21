@@ -25,6 +25,7 @@ let startY;
 
 submitButton.addEventListener('click', function (){
   const dataURI = canvas.toDataURL("image/png");
+  downloadImage(dataURI);
   console.log(dataURI);
 
   
@@ -57,6 +58,22 @@ submitButton.addEventListener('click', function (){
   */
   
 });
+
+function downloadImage(url) {
+  fetch(url, {
+    mode : 'no-cors',
+  })
+    .then(response => response.blob())
+    .then(blob => {
+    let blobUrl = window.URL.createObjectURL(blob);
+    let a = document.createElement('a');
+    a.download = url.replace(/^.*[\\\/]/, '');
+    a.href = blobUrl;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  })
+}
 
 function dataURItoBlob(dataURI) {
   var byteString = atob(dataURI.split(',')[1]);

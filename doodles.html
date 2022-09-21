@@ -7,6 +7,15 @@
     <title>Doodles</title>
 </head>
 <body>
+    <h1><?php
+        $doodles = array();
+    
+        $files = scandir('uploads/');
+    
+        foreach($files as $img) {
+            echo '<img src="'.$img.'" alt="">';
+        }
+    ?></h1>
     <section class="container">
         
     </section>
