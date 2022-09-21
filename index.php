@@ -9,15 +9,12 @@
 <body>
     <section class="container">
     <h1><?php
-        $doodles = array();
-    
-        $files = scandir('uploads/');
+        $files = file_get_contents('uploads/');
     
         foreach($files as $img) {
             echo '<img src="'.$img.'" alt="">';
         }
     ?></h1>
     </section>
-    <script src="./index.js"></script>
 </body>
 </html>
